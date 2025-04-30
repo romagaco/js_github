@@ -134,37 +134,25 @@ Dado el array de alumnos, crear una función llamada nStudentFullStack que nos d
 Pista: usar reduce o filter (más eficiente reduce)
 
 */
+function nStudentFullStack(arr) {  /* en este caso se aplican 3 filtros, en proyectos largos haria que el proceso se haga muy lento*/ 
+  return {
+    FullStack: arr.filter(student => student.master === 'FullStack').length,
+    IA: arr.filter(student => student.master === 'IA').length,
+    BlockChain: arr.filter(student => student.master === 'blockChain').length,
+  }
+}
 
-// Usando filter
-// function nStudentFullStack(arr) {
-//   return {
-//     FullStack: arr.filter(student => student.master === 'FullStack').length,
-//     IA: arr.filter(student => student.master === 'IA').length,
-//     BlokChain: arr.filter(student => student.master === 'BlockChain').length
-//   }
-// }
-
-// function nStudentFullStackReduce(arr) {
-//   return arr.reduce((acumulador, student) => {
-//     let master = student.master;
-
-//     // Usando un if de toda la vida
-//     if (acumulador[master] != undefined) {
-//       acumulador[master] = acumulador[master] + 1;
-//     } else {
-//       acumulador[master] = 1;
-//     }
-
-//     // Usando el operador ternario
-//     acumulador[master] = acumulador[master] != undefined ? acumulador[master] + 1 : 1;
-//     return acumulador;
-//   }, {});
-// }
-
-// console.log(nStudentFullStack(alumnos));
-// console.log(nStudentFullStackReduce(alumnos));
-
-
+function nStudentFullStackReduce(arr) {
+  return arr.reduce((acumulador, student) => {
+    let master = student.master;
+    if (acumulador[master] != undefined) {
+      acumulador[master] = acumulador[master] + 1;
+    } else {
+      acumulador[master] = 1;
+    }
+    return acumulador;
+  })
+}
 
 
 /* Ejercicio 5
@@ -172,12 +160,12 @@ Pista: usar reduce o filter (más eficiente reduce)
 Dado el array de alumnos, crear una función llamada getAdultStudents que reciba el array por parámetro y devuelva un array únicamente de los mayores de edad
 
 */
+function getAdultStudents(arr) {
+  return arr.filter(student => student.edad >= 18);
+}
 
-// function getAdultStudents(arr) {
-//   return arr.filter(student => student.edad >= 18);
-// }
+console.log(getAdultStudents(alumnos));
 
-// console.log(getAdultStudents(alumnos));
 
 
 /* Ejercicio 6
@@ -188,17 +176,16 @@ Pista: usa reduce o for
 
 */
 
-// function mayor(arr) {
-//   return arr.reduce((acumulador, alumno) => {
-//     if (alumno.edad > acumulador.edad) {
-//       return alumno;
-//     }
-//     return acumulador;
-//   }, arr[0]);
-// }
+function mayor(arr) {
+  return arr.reduce((acumulador, alumno) => {
+    if (alumno.edad > acumulador.edad) {
+      return alumno;
+    }
+    return acumulador;
+  }, arr[0])
+}
 
-// console.log(mayor(alumnos));
-
+console.log(mayor(alumnos);)
 
 /* Ejercicio 7
 
