@@ -1,9 +1,11 @@
 /* EJERCICIO 1 
 -- Crea un array donde cada elemento del array original se duplique */ 
 
+let numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+console.log(numbers);
 
-
-
+let doubleNumbers = numbers.map(n => n*2); // duplicar cada elemento del array original
+console.log(doubleNumbers);
 
 /* EJERCICIO 2 
 -- calcula la suma de todos los elementos en el array en el ejercicio 2 e imprimelo */ 
