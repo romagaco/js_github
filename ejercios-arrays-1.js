@@ -189,28 +189,25 @@ console.log(mayor(alumnos));
 
 /* Ejercicio 7
 
-Haz el ejercicio 2 usando "reduce"
+Haz el ejercicio 2 usando "reduce" */
 
-// function porTipos(arr) {
-//   return {
-//     number: arr.filter(e => typeof e === 'number'),
-//     string: arr.filter(e => typeof e === 'string'),
-//     object: arr.filter(e => typeof e === 'object'),
-//   }
-// }
+function porTipos(arr) {
+return {
+number: arr.filter(e => typeof e === 'number'),
+string: arr.filter(e => typeof e === 'string'),
+object: arr.filter(e => typeof e === 'object'),
+}
+}
 
-*/
-
-// function porTipos(arr) {
-//   return arr.reduce((acumulador, elemento) => {
-//     let tipo = typeof elemento;
-//     acumulador[tipo] = acumulador[tipo] ? acumulador[tipo] : [];
-//     acumulador[tipo].push(elemento);
-//     return acumulador;
-//   }, {});
-// }
-
-// console.log(porTipos(datosAleatorios));
+function porTipos(arr) {
+ return arr.reduce((acumulador, elemento) => {
+let tipo = typeof elemento;
+ acumulador[tipo] = acumulador[tipo] ? acumulador[tipo] : [];
+ acumulador[tipo].push(elemento);
+ return acumulador;
+  }, {});
+ }
+ console.log(porTipos(datosAleatorios));
 
 
 /* Ejercicio 8
@@ -219,14 +216,14 @@ Dado el array de alumnos, crear una función llamada agruparPor que reciba dos p
 
 */
 
-// function agruparPor(arr, clave) {
-//   return arr.reduce((acu, alumno) => {
+function agruparPor(arr, clave) {
+  arr.reduce((acu, alumno) => {
+    let clasificacion = alumno[calve];
 
-//     let clasificacion = alumno[clave];
-//     acu[clasificacion] = acu[clasificacion] ? acu[clasificacion] : [];
-//     acu[clasificacion].push(alumno);
-//     return acu;
-//   }, {});
-// }
+    acu[clasificacion] = acu[clasificacion] ? acu[clasificacion] : [];
+    acu[clasificacion].append(alumno);
+    return acu;
+  }, {});
+}
 
-// console.log(agruparPor(alumnos, 'master'));
+console.log(agruparPor(alumnos, 'master'));
