@@ -85,40 +85,45 @@ return newArray; }  */
 
 Dado un array de datos aleatorios, crear una función llamada porTipos que devuelve un objeto con claves por tipo de dato y clasifique los valores del array pasado como parámetro segun su tipo
 
-Pista: usar typeof para determinar el tipo
+Pista: usar typeof para determinar el tipo */
 
-{
-  string: ['Hola que tal', 'Paisa'],
-  number: [66],
-  object: [{}, { name: 'Bienve' }, [1, 2, 3], ['Hola que tal']]
+function porTipos(arr) {
+  return {
+    number: arr.filter(e => {
+      return typeof e === 'number'
+    }),
+    string: arr.filter(e => {
+      return typeof e === 'string'
+    }),
+    object: arr.filter(e => {
+      return typeof e === 'object'
+    }),
+  }
 }
 
-*/
+console.log(porTipos(datosAleatorios));
 
-// function porTipos(arr) {
-//   return {
-//     number: arr.filter(e => typeof e === 'number'),
-//     string: arr.filter(e => typeof e === 'string'),
-//     object: arr.filter(e => typeof e === 'object'),
-//   }
-// }
+function porTipos(arr) {
+  return {
+    number: arr.filter(e =>typeof e === 'number'),
+    string: arr.filter(e =>typeof e === 'string'),
+    object: arr.filter(e =>typeof e === 'object'),
+  }
+}
 
-// console.log(porTipos(datosAleatorios));
-
+console.log(porTipos(datosAleatorios));
 
 /* Ejercicio 3
 
 Dado el array de alumnos, crear una función getFullStackStudents a la que se lo pasamos como parámetro y nos devuelva únicamente a los alumnos que pertenezcan a la formación Full Stack
 
-Pista: usar filter
+Pista: usar filter  */ 
 
-*/
+function getFullStackStudents(arr) {
+  return arr.filter(student => student.master === 'FullStack');
+}
 
-// function getFullStackStudents(arr) {
-//   return arr.filter(student => student.master === 'FullStack')
-// }
-
-// console.log(getFullStackStudents(alumnos));
+console.log(getFullStackStudents(alumnos));
 
 
 
