@@ -106,33 +106,36 @@ const estudiantes = [
 
 // Filtra los estudiantes que tienen una edad mayor o igual a 18 años y guárdalos en un nuevo array llamado estudiantesMayoresDeEdad.
 
-
+const estudiantesMayoresDeEdad = estudiantes.filter(estudiante => 
+    estudiante.edad >= 18 );
+console.log(estudiantesMayoresDeEdad);
 
 // Calcula el promedio de calificaciones para cada estudiante en el array estudiantesMayoresDeEdad y almacena los resultados en un nuevo array llamado promediosCalificaciones.
 
+/* let promediosCalificaciones = estudiantesMayoresDeEdad.map(estudiante => {
+    let suma = estudiante.calificaciones.reduce((media, nota) => {
+        return media + nota;
+    }, 0);
+});
+console.log(promediosCalificaciones);  */ 
+
+let promediosCalificaciones = estudiantesMayoresDeEdad.map(estudiante => {
+    let suma = estudiantesMayoresDeEdad.reduce((media, nota) => {
+        return media + nota;
+    }, 0);
+    return {
+        ...estudiante,
+        media: suma / estudiante.calificaciones.length
+    }
+});
 
 
 // Encuentra al estudiante con la calificación más alta en el array promediosCalificaciones y muestra su nombre y calificación máxima en la consola.
 
-
-/* EJERCICIO 9 */ 
- const ventas = [
-        { producto: 'Camiseta', cantidad: 10, precioUnitario: 15 },
-        { producto: 'Zapatos', cantidad: 5, precioUnitario: 50 },
-        { producto: 'Sombrero', cantidad: 8, precioUnitario: 20 },
-        { producto: 'Pantalones', cantidad: 12, precioUnitario: 30 },
-        { producto: 'Bufanda', cantidad: 15, precioUnitario: 10 },
-    ];
-//Filtra las ventas que tienen una cantidad mayor a 8 unidades y guárdalas en un nuevo array llamado ventasElevadas.
-
-
-
-// Calcula el total de ingresos para cada venta multiplicando la cantidad por el precio unitario y almacena los resultados en un nuevo array llamado ingresosTotales.
-
-
-
-//Encuentra la venta con el ingreso total más alto en el array ingresosTotales y muestra el producto y el ingreso total en la consola.
-
-
-
-//Ordena el array original ventas de manera ascendente según la cantidad de productos vendidos.
+let mayorMedia = promediosCalificaciones.reduce((mayorNota, estudiante) => {
+    if (estudiante.media > mayorNota.media) {
+        return estudiante;
+    }
+    return mayorNota;
+},promediosCalificaciones[0]);
+console.log(mayorMedia);
