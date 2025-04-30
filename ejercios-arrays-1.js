@@ -185,7 +185,7 @@ function mayor(arr) {
   }, arr[0])
 }
 
-console.log(mayor(alumnos);)
+console.log(mayor(alumnos));
 
 /* Ejercicio 7
 
