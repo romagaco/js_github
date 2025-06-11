@@ -7,8 +7,8 @@
     
 </head>
 <body>
-    
-    <h1>Eventos 1 - validacion de correo </h1>
+    <h2>Eventos 1 </h2>
+    <h2>Eventos 1 - validacion de correo </h2>
     <form action="resultados.html" method="get">
         <input type="text" name="email">
         <p>
@@ -17,5 +17,32 @@
         </p>
     </form>
     <script src="eventos1.js"></script>
+
+     <h2>Eventos 1 - validacion de edad </h2>
+    <form action="https://www.google.com/" method="get">
+        <p class="error"></p>
+        <p>
+            <label for"age">Introduce tu edad:</label>
+            <input type="number" id="age" name="age">
+        </p>
+        <button>Enviar</button>
+    </form>
+    <script>
+        let segundoForm = document.forms[1];
+
+        segundoForm.addEventListener("submit", (e)=> {
+            e.preventDefault();
+            console.log("Enviando Formulario");
+            let edad = document.getElementById("age").value;
+            if (edad >= 18 && edad <= 30){
+                segundoForm.submit();
+            } else {
+                segundoForm.querySelector(.error).textContent = "Debes tener entre 18 y 30 años para enviar el formulario.";
+            }
+        });
+
+    </script>
+
+
 </body>
 </html>
