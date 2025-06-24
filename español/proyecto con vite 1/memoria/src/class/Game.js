@@ -105,10 +105,13 @@ class Game {
      static resetGame () {
         localStorage.removeItem("cols");
         localStorage.removeItem("rows");
+        location.reload();
     }
 
 
     static getRowsCols() {
+        let rows, cols;
+
         if (localStorage.getItem("rows") !== null && localStorage.getItem("cols") !== null){
             rows = parseInt(localStorage.getItem("rows"));
             cols = parseInt(localStorage.getItem("cols"));

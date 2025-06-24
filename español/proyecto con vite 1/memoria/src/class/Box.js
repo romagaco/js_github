@@ -58,7 +58,7 @@ class Box {
         } 
     }
 
-    resetColor (){
+    resetColor() {
         this.#element.style.backgroundColor = "black";
         this.#open = false;
     }
