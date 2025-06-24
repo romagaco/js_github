@@ -6,12 +6,12 @@ class Box {
     #open;
     #element;
 
-    constructor(col, row, color){
+    constructor(col, row, color, free=true, open=false){
         this.#col = col;
         this.#row = row;
         this.#color = color;
-        this.#free = true;
-        this.#open = false;
+        this.#free = free;
+        this.#open = open;
     }
 
     get col() {
